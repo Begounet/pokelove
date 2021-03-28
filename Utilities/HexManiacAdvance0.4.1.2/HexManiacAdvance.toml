@@ -1,0 +1,20 @@
+[GeneralSettings]
+LogAppStartupProgress = False
+ShowMatrixGrid = True
+ZoomLevel = 16
+AnimateScroll = True
+AutoAdjustDataWidth = True
+StretchData = True
+AllowMultipleElementsPerLine = True
+IsNewVersionAvailable = False
+LastUpdateCheck = 27/03/2021 12:31:00
+AcknowledgeTutorials = False
+RecentFiles = ["C:\Projects\Git\PokeLove\Binaries\PokeLove.gba"]
+
+[Theme]
+PrimaryColor = "#dddddd"
+BackgroundColor = "#222222"
+HueOffset= 0,1
+AccentSaturation = 0,7
+AccentValue = 0,7
+HighlightBrightness = 0,6
