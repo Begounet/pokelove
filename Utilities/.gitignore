@@ -1,1 +1,11 @@
 *.lnk
+APE
+GBA Graphics Editor
+ItemEditor
+NamelessSpriteEd
+crash.log
+OWM-x86
+PokeTool
+YAPE
+.toml
+FSF/*.Errors.log
