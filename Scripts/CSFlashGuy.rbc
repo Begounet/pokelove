@@ -1,0 +1,41 @@
+#dynamic 0x800000
+#org @start
+
+lock
+faceplayer
+call 0x816F70F
+checkflag 0x23B
+if 0x1 goto @already_done
+msgbox @message_give_item MSG_KEEPOPEN
+checkitemroom 0x157 0x1
+compare LASTRESULT 0x0
+if 0x1 goto @no_place
+additem 0x157 0x1
+loadpointer 0x0 0x819C996 '"[player] obtient\nCS05!"
+giveitem2 0x157 0x1 0x101
+setflag 0x23B
+msgbox @message_item_gave MSG_KEEPOPEN
+release
+end
+
+#org @already_done
+msgbox @message_already_done MSG_KEEPOPEN
+release
+end
+
+#org @no_place
+msgbox @message_no_place MSG_KEEPOPEN
+release
+end
+
+#org @message_give_item
+= Salut! La ZUBAT CAVE est aussi clair\nque le fond du cul d'un PONITA!\pTiens, prends cette CS!
+
+#org @message_item_gave
+= Ferme les yeux avant de l'utiliser\nsi tu veux pas finir\pcomme RAY CHARLES...\pLe talent en moins...
+
+#org @message_already_done
+= Meuf, t'abuses, je t'ai déjà donné\nune CS.\pCassos maintenant!
+
+#org @message_no_place
+= Hey mec, t'as pas de place\ndans ton inventaire!\pReviens les poches vides!
