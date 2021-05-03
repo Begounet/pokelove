@@ -1,0 +1,20 @@
+[GeneralSettings]
+LogAppStartupProgress = False
+ShowMatrixGrid = True
+ZoomLevel = 16
+AnimateScroll = True
+AutoAdjustDataWidth = True
+StretchData = True
+AllowMultipleElementsPerLine = True
+IsNewVersionAvailable = False
+LastUpdateCheck = 02/05/2021 10:59:02
+AcknowledgeTutorials = True
+RecentFiles = ["C:\Projects\Git\PokeLove\Binaries\PokeLove.gba", "C:\Projects\Git\PokeLove\Resources\Pokémon Vert Feuille.gba"]
+
+[Theme]
+PrimaryColor = "#dddddd"
+BackgroundColor = "#222222"
+HueOffset= 0,1
+AccentSaturation = 0,7
+AccentValue = 0,7
+HighlightBrightness = 0,6
