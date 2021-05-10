@@ -1,0 +1,11 @@
+#dynamic 0x800000
+#org @start
+
+lock
+faceplayer
+msgbox @message MSG_KEEPOPEN
+release
+end
+
+#org @message
+= C'est de très loin\nle plus adorable...\pet le plus beau de tous les POKéMON!
