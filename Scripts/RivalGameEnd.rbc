@@ -1,0 +1,261 @@
+'---------------
+#dynamic 0x800000
+#org 0x162B74
+lockall
+textcolor 0x0
+setflag 0x2
+applymovement MOVE_PLAYER 0x8162D05
+waitmovement 0x0
+pause 0x14
+checkflag 0x82C
+if 0x0 call 0x8162CB1
+checkflag 0x82C
+if 0x1 call 0x8162CBA
+special 0x187
+compare LASTRESULT 0x2
+if 0x1 goto 0x8162C66
+setflag 0x3
+setflag 0x5
+playsong2 0x138
+checkflag 0x844
+if 0x0 call 0x8162C6D
+checkflag 0x844
+if 0x1 call 0x8162C8F
+setflag 0x4
+clearflag 0x5
+setflag 0x4BC
+setflag 0x4
+msgbox 0x8178CAC MSG_KEEPOPEN '"J'espérais bien que tu arriverais ..."
+playsong 0x159 0x0
+showsprite 0x2
+msgbox 0x8178D58 MSG_KEEPOPEN '"MAT: [player]!"
+closeonkeypress
+applymovement MOVE_PLAYER 0x8162D1D
+applymovement 0x1 0x8162D3F
+applymovement 0x2 0x8162D28
+waitmovement 0x0
+pause 0x19
+special2 LASTRESULT 0x162
+bufferpokemon 0x0 LASTRESULT
+msgbox 0x8178D62 MSG_KEEPOPEN '"[rival]: Euh, MatNuage, tu peux pa..."
+applymovement 0x2 0x81A5FF0
+applymovement 0x1 0x81A5FEC
+waitmovement 0x0
+msgbox 0x8178DF7 MSG_KEEPOPEN '"MAT: A la base, c'est toi que je\n..."
+closeonkeypress
+applymovement 0x2 0x81A5FF2
+applymovement 0x1 0x81A5FF2
+applymovement MOVE_PLAYER @player_movement
+waitmovement 0x0
+pause 0x14
+msgbox 0x8178F26 MSG_KEEPOPEN '"[rival]: Tu marques un point!\nDu ..."
+closeonkeypress
+pause 0xD
+applymovement 0x2 0x8162D35
+applymovement MOVE_PLAYER 0x8162D10
+waitmovement 0x0
+setvar 0x4001 0x1
+warp 0x1 0x50 0xFF 0x5 0xC
+waitstate
+releaseall
+end
+
+'---------------
+#org 0x162CB1
+msgbox 0x8178882 MSG_KEEPOPEN '"[rival]: Salut Saucisse!\pTu en as..."
+return
+
+'---------------
+#org 0x162CBA
+msgbox 0x8178A19 MSG_KEEPOPEN '"[rival]: Salut [player]!\pT'en as ..."
+return
+
+'---------------
+#org 0x162C66
+call 0x8162B55
+releaseall
+end
+
+'---------------
+#org 0x162C6D
+compare 0x4031 0x2
+if 0x1 call 0x8162CC3
+compare 0x4031 0x1
+if 0x1 call 0x8162CCE
+compare 0x4031 0x0
+if 0x1 call 0x8162CD9
+return
+
+'---------------
+#org 0x162C8F
+compare 0x4031 0x2
+if 0x1 call 0x8162CE4
+compare 0x4031 0x1
+if 0x1 call 0x8162CEF
+compare 0x4031 0x0
+if 0x1 call 0x8162CFA
+return
+
+'---------------
+#org 0x162B55
+setvar 0x4001 0x1
+return
+
+'---------------
+#org 0x162CC3
+trainerbattle 0x3 0x1B6 0x0 0x8178BA7
+return
+
+'---------------
+#org 0x162CCE
+trainerbattle 0x3 0x1B6 0x0 0x8178BA7
+return
+
+'---------------
+#org 0x162CD9
+trainerbattle 0x3 0x1B6 0x0 0x8178BA7
+return
+
+'---------------
+#org 0x162CE4
+trainerbattle 0x3 0x2E3 0x0 0x8178BA7
+return
+
+'---------------
+#org 0x162CEF
+trainerbattle 0x3 0x2E3 0x0 0x8178BA7
+return
+
+'---------------
+#org 0x162CFA
+trainerbattle 0x3 0x2E3 0x0 0x8178BA7
+return
+
+
+'---------
+' Strings
+'---------
+#org 0x178CAC
+= J'espérais bien que tu arriverais à\nme battre quand même!\pPremier Nuzlocke terminé en stream,\nje suis fier de toi!\pDu coup, j'en profite[.]
+
+#org 0x178D58
+= MAT: [player]!
+
+#org 0x178D62
+= [rival]: Euh, MatNuage, tu peux pas\nattendre un peu, j'avais un truc\là dire quand même et toi\ltu arrives sans prévenir.
+
+#org 0x178DF7
+= MAT: A la base, c'est toi que je\nvenais féliciter mais apparement, \ltu n'as pas gardé ton titre bien\llongtemps.\pDu coup, je viens féliciter Marie!\nPis si tu as un truc à dire,\lfait le IRL, elle est à côté de toi.
+
+#org 0x178F26
+= [rival]: Tu marques un point!\nDu coup, Marie, si tu peux lâcher\lle jeu 2 minutes,\lj'ai un truc à te dire[.]
+
+#org 0x178882
+= [rival]: Salut Saucisse!\pTu en as mis du temps pour arriver\njusqu'ici.\pTout ce chemin, tous ces KO,\nj'espère quand même que ta team\lest prête car moi je suis chaud!\pSi tu me bats, tu deviendras donc\nMAITRE POKéMON et tu l'auras\lbien mérité.\pAllez en piste!
+
+#org 0x178A19
+= [rival]: Salut [player]!\pT'en as pas eu assez?\pTon devoir en tant qu'adversaire\nest d'entraîner mes POKéMON.\pEn améliorant mon POKéDEX, j'ai\ncherché des POKéMON surpuissants!\pJ'ai ainsi créé l'équipe ultime,\nefficace contre tous les types de\lPOKéMON!\pÇa t'épate, hein?\pJe suis le MAITRE de la LIGUE\nPOKéMON!\pTu sais c'que ça veut dire?\pEcoute ça, minable!\pJe suis le DRESSEUR le plus\npuissant du monde! Yaaa!
+
+#org 0x178BA7
+= Bon, bah tu vas prendre ma place.\pTu vas voir, c'est cool, tu restes \ndans cette pièce vide et tu attends\ldes heures que quelqu'un vienne.\lPASSIONNANT!
+
+
+'-----------
+' Movements
+'-----------
+#org 0x162D05
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0xFE 'End of Movements
+
+#org 0x162D1D
+#raw 0x1B 'Delay4
+#raw 0x2D 'Face Down (Delayed)
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x2F 'Face Left (Delayed)
+#raw 0xFE 'End of Movements
+
+#org 0x162D3F
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x2F 'Face Left (Delayed)
+#raw 0xFE 'End of Movements
+
+#org 0x162D28
+#raw 0x1C 'Delay5
+#raw 0x1C 'Delay5
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x12 'Step Left (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x2D 'Face Down (Delayed)
+#raw 0x1C 'Delay5
+#raw 0xFE 'End of Movements
+
+#org 0x1A5FF0
+#raw 0x30 'Face Right (Delayed)
+#raw 0xFE 'End of Movements
+
+#org 0x1A5FEC
+#raw 0x2F 'Face Left (Delayed)
+#raw 0xFE 'End of Movements
+
+#org 0x1A5FF2
+#raw 0x2D 'Face Down (Delayed)
+#raw 0xFE 'End of Movements
+
+#org 0x162D35
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x1B 'Delay4
+#raw 0x60 'Hide
+#raw 0xFE 'End of Movements
+
+#org 0x162D10
+#raw 0x1C 'Delay5
+#raw 0x12 'Step Left (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x1B 'Delay4
+#raw 0x60 'Hide
+#raw 0xFE 'End of Movements
+
+#org @player_movement
+#raw 0x2E 'Face Up (Delayed)
+#raw 0xFE 'End of Movements
