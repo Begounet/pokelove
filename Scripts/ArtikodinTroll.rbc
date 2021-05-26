@@ -1,0 +1,80 @@
+'---------------
+#dynamic 0x800000
+#org @artikodin_troll
+
+special 0x187
+compare LASTRESULT 0x2
+if 0x1 goto 0x81A64E5
+special 0x188
+lock
+faceplayer
+setwildbattle 0x10 0x32 0x0
+checksound
+cry 0x10 0x2
+preparemsg 0x81A4F6F '"Yahou!"
+waitmsg
+waitcry
+pause 0xA
+playsong 0x156 0x0
+waitkeypress
+setflag 0x807
+special 0x138
+waitstate
+clearflag 0x807
+msgbox @msg_get_artikodin MSG_KEEPOPEN
+givepokemon 0x90 0x32 0x0 0x0 0x0 0x0
+special2 LASTRESULT 0xB4
+compare LASTRESULT 0x1
+if 0x1 goto 0x816320D
+compare LASTRESULT 0x4
+if 0x1 goto 0x8163216
+compare LASTRESULT 0x5
+if 0x1 goto 0x8163216
+setflag 0x2BE
+release
+end
+
+'---------------
+#org 0x1A64E5
+release
+end
+
+'---------------
+#org 0x16320D
+setflag 0x2BE
+goto 0x81A7C32
+
+'---------------
+#org 0x163216
+setvar 0x8004 0x90
+goto 0x81A7C3B
+
+'---------------
+#org 0x1A7C32
+fadescreen 0x1
+hidesprite LASTTALKED
+fadescreen 0x0
+release
+end
+
+'---------------
+#org 0x1A7C3B
+fadescreen 0x1
+hidesprite LASTTALKED
+fadescreen 0x0
+bufferpokemon 0x0 0x8004
+msgbox 0x81A4ED3 MSG_KEEPOPEN '"Le [buffer1] s'est enfui!"
+release
+end
+
+'---------
+' Strings
+'---------
+#org 0x1A4F6F
+= Yahou!
+
+#org 0x1A4ED3
+= Le [buffer1] s'est enfui!
+
+#org @msg_get_artikodin
+= Après avoir éliminé ce pauvre\nRoucool, vous trouvez\lune POKéBALL parmi ces oeufs.\pEt dans cette POKéBALL,\nvous trouvez un MACRONIUM!\pNon, c'est faux.\pC'est un ARTIKODIN.
