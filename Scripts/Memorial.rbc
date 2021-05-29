@@ -1,0 +1,40 @@
+#dynamic 0x800000
+#org @start
+
+msgbox @welcome_msg MSG_NORMAL
+
+' Gounet Meganium
+showpokepic 0x9A 0xA 0x3
+pause 0x02
+hidepokepic
+
+' Whiku Pharamp
+showpokepic 0xD6 0xA 0x3
+pause 0x02
+hidepokepic
+
+' Selilah Sablaireau
+showpokepic 0xD6 0xA 0x3
+pause 0x02
+hidepokepic
+
+' Mulien Machoc
+showpokepic 0xD6 0xA 0x3
+pause 0x02
+hidepokepic
+
+' Patou Poussifeu
+showpokepic 0x118 0xA 0x3
+pause 0x02
+hidepokepic
+
+' Eline Amonita
+showpokepic 0x8A 0xA 0x3
+pause 0x02
+hidepokepic
+
+end
+
+
+#org @welcome_msg
+= Mémorial des POKéMON morts de [player].\pEn souvenir de ces braves\nPOKéMON parfois injustement\ltombés au combats,\lparfois sacrifiés\lpour servir le NUZLOCKE de [player].\pDans tous les cas,\nils furent aimés\let chaque perte est une tragédie.\pEspérons qu'ils soient les derniers.
